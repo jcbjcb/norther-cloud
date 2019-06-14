@@ -1,0 +1,20 @@
+server:
+  port: 9001
+
+spring:
+  security:
+    user:
+      name: user
+      password: 123456
+
+  application:
+    name: admin
+  cloud:
+    consul:
+      discovery:
+        health-check-path: /actuator/health # 健康检查地址
+        health-check-interval: 10s #检查频率
+        instance-id: ${spring.application.name} # 注册的唯一 id
+      host: 127.0.0.1 # consul ip
+      port: 8500  # consul port
+
